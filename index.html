@@ -1,0 +1,69 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Madrasah Map - Leaflet.js</title>
+  
+  <!-- Leaflet CSS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+  <div>
+    <h3>ঢাকা শহরের কিছু পরিচিত মাদরাসা</h3>
+  </div>
+
+  <!-- Leaflet JS CDN -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Initialize map
+    const map = L.map('map').setView([23.685, 90.3563], 7); // Bangladesh center approx.
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Sample 10 madrasahs from 10 districts with approximate coordinates
+    const madrasahs = [
+      { name: "	জামিয়া ইসলামিয়া দারুল উলূম মাদানিয়া, যাত্রাবাড়ী, ঢাকা । প্রিন্সিপাল: মাও. মাহমুদুল হাসান", district: "Dhaka", coords: [23.707469970832108, 90.43789752323421] },
+      { name: "জামিয়াতুল উলুমিল ইসলামিয়া ঢাকা, মোহাম্মদী হাউজিং, মোহাম্মদপুর, ঢাকা। প্রিন্সিপাল মাও. সাইফুল ইসলাম সাহেব", district: "", coords: [23.759895682816456, 90.3530000097447] },
+      { name: "মাদরাসা বাইতুল উলূম, ঢালকানগর, সূত্রাপুর, ঢাকা। প্রিন্সিপাল: মাও. আবু জাফর সাহেব", coords: [23.706554295130058, 90.40782102613186] },
+      { name: "জামিয়া আরাবিয়া ইমদাদুল উলুম ফরিদাবাদ, গেন্ডারিয়া, ঢাকা। প্রিন্সিপাল মাও. আব্দুল কুদ্দুস সাহেব", coords: [23.698662406002708, 90.42195600157041] },
+      { name: "মারকাযুল কুরআন মাষ্টারপাড়া, উত্তর খান, ঢাকা, পিন্সিপাল মাও. এমদাদুল্লাহ", coords: [23.879840565982384, 90.42600356742076] },
+      { name: "	আল-জামিআতুল ইসলামিয়া দারুল উলূম মাদানীনগর, সিদ্ধিরগঞ্জ, নারায়ণগঞ্জ। প্রিন্সিপাল মাও. ফয়জুল্লা সাহেব", coords: [23.710707768967765, 90.50277050108828] },
+      { name: "জামিয়া শারইয়্যাহ মালিবাগ, ঢাকা, প্রিন্সিপাল মাও. আবু সাঈদ", coords: [23.75057796318738, 90.41479086741701] },
+      { name: "জামিয়া রাহমানিয়া আরাবিয়া, সাত মসজিদ রোড, মোহাম্মদপুর, ঢাকা।  প্রিন্সিপাল: মাও. হিফজুর রহমান", coords: [23.748999745725456, 90.36960506927107] },
+    ];
+
+    // Loop through madrasahs and add markers
+    madrasahs.forEach(m => {
+      L.marker(m.coords)
+        .addTo(map)
+        .bindPopup(`<b>${m.name}`);
+    });
+  </script>
+
+</body>
+</html>
