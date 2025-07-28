@@ -14,15 +14,7 @@
   
 
     <style>
-      #map {
-        height: 100vh;
-        width: 100%;
-        
-      }
-      body {
-        margin: 0;
-        font-family: sans-serif;
-      }
+
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -40,7 +32,9 @@
       gtag("config", "G-P257G7H2BC");
     </script>
   </head>
-  <body>
+
+  <body class="flex flex-col min-h-screen">
+     <main>  
 
   <nav class="bg-yellow-600 shadow-md  ">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,8 +60,8 @@
     <!-- মোবাইল মেনু -->
     <div id="mobile-menu"  class="hidden md:hidden px-4 pb-4">
       <a href="#" class="block py-2 text-gray-700 hover:text-blue-500">মোট মারকাজ ৩১৫, ছেলে ১৫০, মেয়ে ১৬৫</a>
-      <!-- <a href="#" class="block py-2 text-gray-700 hover:text-blue-500">ব্লগ</a>
-      <a href="#" class="block py-2 text-gray-700 hover:text-blue-500">যোগাযোগ</a> -->
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-500">ব্লগ</a>
+      <a href="#number" class="block py-2 text-gray-700 hover:text-blue-500">যোগাযোগ</a>
     </div>
   </nav>
 
@@ -84,7 +78,7 @@
         <!-- <p class="text-sm text-gray-400">আপনার সংক্ষিপ্ত ভিশন বা বিবরণ এখানে।</p> -->
       </div>
       <div>
-        <h3 class="font-bold text-lg mb-2">যোগাযোগ</h3>
+        <h3 id="number" class="font-bold text-lg mb-2">যোগাযোগ</h3>
         <ul>
           <li><a href="#" class="hover:text-white">01970763178</a></li>
           <li><a href="#" class="hover:text-white">01700763178</a></li>
@@ -236,5 +230,6 @@
 
         <!--===== MAIN JS =====-->
         <script src="map.js"></script>
+       </main>
   </body>
 </html>
